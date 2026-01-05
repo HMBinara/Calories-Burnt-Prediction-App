@@ -34,7 +34,7 @@ def load_model():
 model = load_model()
 
 # --- SIDEBAR INPUTS ---
-st.sidebar.header("🔧 Activity Settings")
+st.sidebar.title("🔧 Activity Settings")
 
 def user_input_features():
     gender = st.sidebar.radio('Gender', ('male', 'female'), horizontal=True)
@@ -57,13 +57,22 @@ def user_input_features():
 input_df = user_input_features()
 prediction = model.predict(input_df)[0]
 
+
+st.title("🔥 BurnLive AI - Fitness Dashboard")
+
 # --- MAIN LAYOUT ---
 # Columns: [Middle for Charts, Right for Prediction]
 col_charts, col_pred = st.columns([2, 1], gap="medium")
 
+
+
 # --- CENTER COLUMN: CHARTS (Vertical Stack) ---
 with col_charts:
-    st.title("📊 Activity Analysis")
+    
+    
+    st.header("📊 Activity Analysis")
+    # --- ACTIVITY ANALYSIS HEADER & DESCRIPTION ---
+    st.write("This graph visualizes the projected calorie burn over a 60-minute session based on your current intensity.As your Duration increases, the cumulative Calories burnt scales according to your heart rate and physical metrics.")
     
     # Chart 1: Prediction Trend Line
     
